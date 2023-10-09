@@ -2,74 +2,21 @@
 <html>
 <head>
     <title>Голосовой ассистент</title>
-    <style>
-        body {
-            background-color: #333; /* Тёмно-серый фон */
-            color: #FF6600; /* Тёмно-оранжевый цвет текста */
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .main-title {
-            font-family: Arial, sans-serif;
-            color: #FFF;
-            text-align: center;
-            font-size: 48px;
-            text-transform: uppercase;
-            margin-top: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            animation: glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            0% {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            }
-            100% {
-                text-shadow: 2px 2px 10px rgba(0, 102, 255, 0.7); /* Синее свечение */
-            }
-        }
-        
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #3c67ca; /* Тёмно-голубой цвет кнопки */
-            color: #fff; /* Белый цвет текста на кнопке */
-            border: none;
-            border-radius: 5px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0099CC; /* Цвет при наведении */
-        }
-
-        @keyframes flow {
-            0% {
-                background-position: 0 0; /* Начальная позиция градиентного фона */
-            }
-            100% {
-                background-position: 100% 100%; /* Конечная позиция градиентного фона */
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/stars.css">
 </head>
 <body>
+    <div class="stars"></div>
     <h1 class="main-title">Добро пожаловать в будущее: <br>Голосовой Ассистент</h1>
     <form method="POST" action="/process_command">
-        <input type="submit" value="Нажмите и скажите команду">
+        <input id="runButton" type="submit" value="Нажмите и скажите команду">
     </form>  
+
+    <audio id="activationSound" src="../static/clickButton.mp3" preload="auto"></audio>
+    <audio id="successSound" src="../static/success.mp3" preload="auto"></audio>
+    <audio id="errorSound" src="../static/error.mp3" preload="auto"></audio>
+
+    <script src="../static/play_sound.js"></script>
+    <script src="../static/move_stars.js"></script>
 </body>
 </html>

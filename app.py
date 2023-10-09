@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from speech_recognition_module import recognize_speech
 from commands import process_command
 
@@ -12,7 +12,7 @@ def index():
 def process_voice_command():
     command = recognize_speech()
     result = process_command(command)
-    return render_template('done_command.html', result=result)
+    return redirect(url_for('index')) 
 
 if __name__ == '__main__':
     app.run(debug=True)
